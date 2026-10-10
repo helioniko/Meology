@@ -1,0 +1,30 @@
+# Personal data, credentials and exports
+data/
+backups/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+personal-export*.json
+ai-context*.md
+credentials.bin
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Local dependencies, runtime files and verification artifacts
+vendor/
+.local-cache/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+
+*.sqlite3.gz
+personal-export*.json.gz
+
+release/
+build/
+dist/

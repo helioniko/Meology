@@ -1,0 +1,571 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Personal memory portable export v1",
+  "type": "object",
+  "required": [
+    "format",
+    "format_version",
+    "database_schema_version",
+    "dataset_id",
+    "exported_at",
+    "encoding",
+    "timezone",
+    "metadata",
+    "records",
+    "revisions",
+    "sessions",
+    "messages",
+    "proposals",
+    "summaries",
+    "entry_digests",
+    "jobs",
+    "providers",
+    "usage"
+  ],
+  "properties": {
+    "format": {
+      "const": "personal-memory"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "database_schema_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "dataset_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "exported_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "encoding": {
+      "const": "UTF-8"
+    },
+    "timezone": {
+      "const": "Asia/Shanghai"
+    },
+    "metadata": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "event_date": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "sensitivity": {
+            "type": "string"
+          },
+          "share_with_ai": {
+            "type": "integer"
+          },
+          "archived": {
+            "type": "integer"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          },
+          "field_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_message_id": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "content_state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "category",
+          "title",
+          "content",
+          "source",
+          "event_date",
+          "tags",
+          "status",
+          "sensitivity",
+          "share_with_ai",
+          "archived",
+          "created_at",
+          "updated_at",
+          "field_key",
+          "source_message_id",
+          "content_state"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "record_id": {
+            "type": "integer"
+          },
+          "snapshot": {
+            "type": "string"
+          },
+          "changed_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "record_id",
+          "snapshot",
+          "changed_at"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "created_at"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "session_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "share_with_ai": {
+            "type": "integer"
+          },
+          "organized": {
+            "type": "integer"
+          },
+          "answer_for": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "request_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "model": {
+            "type": "string"
+          },
+          "organize_offset": {
+            "type": "integer"
+          },
+          "retention_state": {
+            "type": "string"
+          },
+          "compact_content": {
+            "type": "string"
+          },
+          "source_hash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "session_id",
+          "role",
+          "content",
+          "created_at",
+          "share_with_ai",
+          "organized",
+          "answer_for",
+          "request_id",
+          "model",
+          "organize_offset",
+          "retention_state",
+          "compact_content",
+          "source_hash"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "proposals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "dedupe_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "field_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "quote": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "record_id": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "review_level": {
+            "type": "string"
+          },
+          "evidence_verified": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "dedupe_key",
+          "kind",
+          "field_key",
+          "title",
+          "content",
+          "quote",
+          "source_ids",
+          "reason",
+          "status",
+          "record_id",
+          "created_at",
+          "review_level",
+          "evidence_verified"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "summaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "period": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "fingerprint": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "events": {
+            "type": "string"
+          },
+          "ideas": {
+            "type": "string"
+          },
+          "source_ids": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "period",
+          "type",
+          "fingerprint",
+          "summary",
+          "events",
+          "ideas",
+          "source_ids",
+          "status",
+          "updated_at"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "entry_digests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "job_id": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "source_ids": {
+            "type": "string"
+          },
+          "overview": {
+            "type": "string"
+          },
+          "events": {
+            "type": "string"
+          },
+          "ideas": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "job_id",
+          "source_ids",
+          "overview",
+          "events",
+          "ideas",
+          "created_at"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "dedupe_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "attempts": {
+            "type": "integer"
+          },
+          "due_at": {
+            "type": "string"
+          },
+          "last_error": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "dedupe_key",
+          "kind",
+          "payload",
+          "status",
+          "attempts",
+          "due_at",
+          "last_error",
+          "created_at",
+          "updated_at"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "base_url": {
+            "type": "string"
+          },
+          "model": {
+            "type": "string"
+          },
+          "organizer_model": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "base_url",
+          "model",
+          "organizer_model"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "usage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "day": {
+            "type": "string"
+          },
+          "provider_id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "tokens": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "day",
+          "provider_id",
+          "purpose",
+          "created_at",
+          "tokens"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

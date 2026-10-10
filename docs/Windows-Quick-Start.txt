@@ -1,0 +1,20 @@
+Meology V1.0.1 — Personal memory on your desktop
+
+INSTALL: Double-click Meology-1.0.1-Setup-x64.exe and follow the wizard.
+OPEN: Use the Meology desktop shortcut or search Meology in the Start menu.
+LANGUAGE: Manage → Settings → Interface language → English / 中文.
+FIRST START: Read the built-in guide, then choose optional profile areas to fill in.
+HELP: Reopen the guide in Manage → Settings → Getting started.
+RECORD: Write an event or idea in the widget and press Send.
+AI: Configure your own API, or use the manual DeepSeek / Doubao website workflow.
+ORGANIZE: API batches run hourly by default. Successful extraction clears original input.
+REVIEW: Only core changes and AI inferences need approval.
+QUIT: Right-click the tray icon and choose Quit.
+
+Windows 10 2004+ / Windows 11, x64. Python and application dependencies are included.
+Existing WebView2 is reused. If missing, the official bootstrapper needs internet to install it.
+Data stays in %LOCALAPPDATA%\Meology, separate from application files.
+Upgrading or uninstalling the app does not delete your personal data.
+No developer data, API keys, test records or backups are included in this download.
+Your own AI service is required for automatic extraction; API usage depends on that service.
+The current installer is unsigned; Windows may show an unknown-publisher prompt.
